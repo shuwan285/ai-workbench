@@ -1,0 +1,92 @@
+/* 设计变量。深色模式只换这里的值，组件样式不用动。 */
+
+:root {
+  --bg: #fafaf8;
+  --surface: #ffffff;
+  --surface-2: #f4f3f0;
+  --border: #e8e6e1;
+  --border-strong: #d5d2cb;
+  --text: #1f1e1c;
+  --muted: #7a776f;
+  --faint: #a8a49b;
+  --accent: #4a6fa5;
+  --accent-soft: #eaeff7;
+  --accent-contrast: #ffffff;
+
+  /* 状态色：base 用于文字和描边，soft 用作背景 */
+  --c-blue: #4a6fa5;
+  --c-blue-soft: #eaeff7;
+  --c-green: #5a9367;
+  --c-green-soft: #e9f2eb;
+  --c-amber: #c99a3e;
+  --c-amber-soft: #f8f0e0;
+  --c-red: #c4574c;
+  --c-red-soft: #f8e9e7;
+  --c-purple: #7e6baa;
+  --c-purple-soft: #efebf6;
+  --c-gray: #8d8a82;
+  --c-gray-soft: #f0efec;
+
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.06);
+  --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.08);
+  --shadow-3: 0 12px 40px rgba(0, 0, 0, 0.16);
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 48px;
+
+  --r-sm: 6px;
+  --r-md: 8px;
+  --r-lg: 12px;
+  --r-full: 999px;
+
+  --fs-xs: 12px;
+  --fs-sm: 13px;
+  --fs-base: 14px;
+  --fs-md: 15px;
+  --fs-lg: 18px;
+  --fs-xl: 22px;
+  --fs-2xl: 28px;
+
+  --font-ui: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Microsoft YaHei',
+    'PingFang SC', 'Hiragino Sans GB', sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Consolas, monospace;
+
+  --sidebar-w: 232px;
+}
+
+html[data-theme='dark'] {
+  --bg: #16171a;
+  --surface: #1f2125;
+  --surface-2: #26282d;
+  --border: #33363c;
+  --border-strong: #454951;
+  --text: #e8e7e4;
+  --muted: #9a978f;
+  --faint: #6e6b65;
+  --accent: #7a9bd0;
+  --accent-soft: #1e2836;
+  --accent-contrast: #11131a;
+
+  --c-blue: #7a9bd0;
+  --c-blue-soft: #1e2836;
+  --c-green: #7fb98d;
+  --c-green-soft: #1b2a1f;
+  --c-amber: #d9b463;
+  --c-amber-soft: #2e2718;
+  --c-red: #d98077;
+  --c-red-soft: #2f1f1d;
+  --c-purple: #a491cc;
+  --c-purple-soft: #262034;
+  --c-gray: #9a978f;
+  --c-gray-soft: #26282d;
+
+  --shadow-1: 0 1px 3px rgba(0, 0, 0, 0.4);
+  --shadow-2: 0 4px 16px rgba(0, 0, 0, 0.45);
+  --shadow-3: 0 12px 40px rgba(0, 0, 0, 0.6);
+}

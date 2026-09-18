@@ -1,0 +1,187 @@
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  transition:
+    border-color 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+.card:hover {
+  border-color: var(--border-strong);
+  box-shadow: var(--shadow-1);
+}
+
+.card[data-archived='true'] {
+  opacity: 0.62;
+}
+
+/* 整张卡片可点，但用独立的一层链接，键盘也能聚焦 */
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: var(--r-md);
+}
+
+.bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 4px;
+  border-radius: var(--r-md) 0 0 var(--r-md);
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--fs-md);
+  font-weight: 600;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.blockDot {
+  flex: none;
+  width: 7px;
+  height: 7px;
+  background: var(--c-amber);
+  border-radius: var(--r-full);
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.category {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.pct {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+}
+
+.taskCount {
+  margin-left: 3px;
+  font-family: var(--font-ui);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  color: var(--faint);
+}
+
+.next {
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+  font-size: var(--fs-sm);
+  color: var(--text);
+  line-height: 1.5;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.nextLabel {
+  margin-right: 6px;
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+
+.nextEmpty {
+  font-size: var(--fs-sm);
+  color: var(--faint);
+}
+
+/* ---------- 列表视图 ---------- */
+
+.row {
+  border-bottom: 1px solid var(--border);
+}
+
+.row:hover {
+  background: var(--surface-2);
+}
+
+.row[data-archived='true'] {
+  opacity: 0.6;
+}
+
+.row td {
+  padding: 10px var(--sp-3);
+  vertical-align: middle;
+}
+
+.rowName {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.rowName:hover {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.rowBar {
+  width: 3px;
+  height: 16px;
+  border-radius: var(--r-full);
+}
+
+.rowMuted {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.rowProgress {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  min-width: 140px;
+}
+
+.rowProgress span {
+  flex: none;
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.rowActions {
+  width: 48px;
+  text-align: right;
+}
+
+@media (max-width: 640px) {
+  .card {
+    padding: var(--sp-3);
+  }
+}

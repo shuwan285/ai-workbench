@@ -1,0 +1,253 @@
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 1fr);
+  gap: var(--sp-5);
+  align-items: start;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+  min-width: 0;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  min-width: 0;
+}
+
+.section {
+  padding-bottom: var(--sp-5);
+  border-bottom: 1px solid var(--border);
+}
+
+.section:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.sectionTitle {
+  display: flex;
+  align-items: baseline;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-3);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.sectionHint {
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  color: var(--faint);
+}
+
+/* 点一下就能编辑的文本 */
+.inline {
+  display: block;
+  width: 100%;
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-base);
+  line-height: 1.7;
+  text-align: left;
+  color: var(--text);
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: var(--r-sm);
+  cursor: text;
+  white-space: pre-wrap;
+  transition:
+    background 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.inline:hover {
+  background: var(--surface-2);
+}
+
+.inline[data-empty='true'] {
+  color: var(--faint);
+}
+
+.descText {
+  font-size: var(--fs-base);
+}
+
+.nextText {
+  font-size: var(--fs-lg);
+  font-weight: 500;
+}
+
+.inlineRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--sp-3);
+}
+
+.inlineRow > * {
+  width: auto;
+  min-width: 150px;
+}
+
+.emptyLine {
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--faint);
+  line-height: 1.6;
+}
+
+.constraintList {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-bottom: var(--sp-3);
+}
+
+.constraintList li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-sm);
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+
+.constraintList li span {
+  flex: 1;
+  min-width: 0;
+  line-height: 1.5;
+}
+
+.constraintList li button,
+.linkList li button {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  font-size: 10px;
+  color: var(--faint);
+  background: none;
+  border: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+}
+
+.constraintList li button:hover,
+.linkList li button:hover {
+  color: var(--c-red);
+  background: var(--c-red-soft);
+}
+
+.addRow {
+  display: flex;
+  gap: var(--sp-2);
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+  padding: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.sideTitle {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.ring {
+  align-self: center;
+}
+
+.ringFill {
+  transition: stroke-dashoffset 0.3s ease;
+}
+
+.modeToggle {
+  display: flex;
+  padding: 2px;
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+
+.modeToggle button {
+  flex: 1;
+  height: 28px;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.modeToggle button[data-active='true'] {
+  color: var(--text);
+  background: var(--surface);
+  box-shadow: var(--shadow-1);
+}
+
+.modeHint {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  line-height: 1.55;
+  text-align: center;
+}
+
+.slider {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.slider input {
+  flex: 1;
+  accent-color: var(--accent);
+}
+
+.slider span {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.linkList {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.linkList li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+}
+
+.linkList li a {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.linkForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

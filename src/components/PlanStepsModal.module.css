@@ -1,0 +1,124 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.head {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.source {
+  flex: none;
+  font-size: var(--fs-xs);
+  padding: 0 var(--sp-2);
+  border-radius: var(--r-full);
+  line-height: 1.7;
+}
+
+.source[data-kind='claude'] {
+  color: var(--c-green);
+  background: var(--c-green-soft);
+}
+
+.source[data-kind='mock'] {
+  color: var(--c-amber);
+  background: var(--c-amber-soft);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  max-height: 48vh;
+  overflow-y: auto;
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.row {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  border-bottom: 1px solid var(--border);
+}
+
+.row:last-child {
+  border-bottom: none;
+}
+
+/* 没勾的整条变淡，一眼看出哪些不会加进去 */
+.row[data-off='true'] {
+  opacity: 0.5;
+}
+
+.pick {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  cursor: pointer;
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  height: 28px;
+  padding: 0 var(--sp-2);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+}
+
+.field {
+  display: flex;
+  gap: var(--sp-2);
+  padding-left: calc(16px + var(--sp-2));
+}
+
+.label {
+  flex: none;
+  width: 4.5em;
+  padding-top: 4px;
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+
+.textarea {
+  flex: 1;
+  min-width: 0;
+  padding: var(--sp-2);
+  font-family: inherit;
+  font-size: var(--fs-xs);
+  line-height: 1.6;
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  resize: vertical;
+}
+
+@media (max-width: 640px) {
+  .field {
+    flex-direction: column;
+    gap: var(--sp-1);
+  }
+
+  .label {
+    width: auto;
+    padding-top: 0;
+  }
+}

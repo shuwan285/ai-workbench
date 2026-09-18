@@ -1,0 +1,135 @@
+.sidebar {
+  position: sticky;
+  top: 0;
+  flex: none;
+  width: var(--sidebar-w);
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: var(--sp-5) var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 0 var(--sp-2) var(--sp-5);
+}
+
+.mark {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  display: grid;
+  place-items: center;
+  font-size: 15px;
+  color: var(--accent-contrast);
+  background: var(--accent);
+  border-radius: var(--r-md);
+}
+
+.brandText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.brandText strong {
+  font-size: var(--fs-base);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.brandText small {
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+
+.nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  height: 36px;
+  padding: 0 var(--sp-3);
+  font-size: var(--fs-base);
+  color: var(--muted);
+  border-radius: var(--r-sm);
+  text-decoration: none;
+}
+
+.link:hover {
+  background: var(--surface-2);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.active,
+.active:hover {
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.icon {
+  width: 18px;
+  font-size: 13px;
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-top: var(--sp-3);
+  border-top: 1px solid var(--border);
+}
+
+.footerBtn {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  height: 32px;
+  padding: 0 var(--sp-3);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+  text-align: left;
+}
+
+.footerBtn:hover {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+.footerLabel {
+  flex: 1;
+}
+
+@media (max-width: 900px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 98;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform 0.2s ease;
+    box-shadow: var(--shadow-3);
+  }
+
+  .sidebar[data-open='true'] {
+    transform: translateX(0);
+  }
+}

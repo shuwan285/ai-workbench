@@ -1,0 +1,42 @@
+name: 测试
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  # 单独一个 job，而且不依赖 npm ci —— 万一 node_modules 出问题，
+  # 这道检查也得跑起来。它只用 git。
+  secrets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      # pre-commit 钩子可以被 --no-verify 绕过，这里补一道
+      - run: node scripts/check-secrets.mjs
+
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      # 18 是 README 里写的下限，24 是开发时用的版本。中间两个是 LTS。
+      # 全部依赖的 engines 都含 18，所以这个下限是有依据的，不是随手写的。
+      matrix:
+        node: ['18', '20', '22', '24']
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node }}
+          cache: npm
+
+      - run: npm ci
+
+      # 四套测试跑完还要能构建，否则等于「测试绿但打包是坏的」
+      - run: npm run build
+
+      # 命令行启动那套测试在非 Windows 上会自己跳过 Windows 专属的几组
+      - run: npm run test:all

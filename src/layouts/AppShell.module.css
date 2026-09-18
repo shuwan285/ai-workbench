@@ -1,0 +1,141 @@
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+.topbar {
+  display: none;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  padding: var(--sp-8) var(--sp-8) var(--sp-10);
+}
+
+.banner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-5);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  border-radius: var(--r-md);
+}
+
+.banner > span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+}
+
+.banner code {
+  padding: 1px 5px;
+  font-family: var(--font-mono);
+  font-size: var(--fs-xs);
+  background: rgba(0, 0, 0, 0.07);
+  border-radius: 4px;
+}
+
+.banner a {
+  flex: none;
+  font-size: var(--fs-sm);
+  white-space: nowrap;
+}
+
+.banner[data-tone='amber'] {
+  color: var(--c-amber);
+  background: var(--c-amber-soft);
+  border-left: 3px solid var(--c-amber);
+}
+
+.banner[data-tone='red'] {
+  color: var(--c-red);
+  background: var(--c-red-soft);
+  border-left: 3px solid var(--c-red);
+}
+
+/* 引导，不是警告 —— 没接 AI 时应用照样能用，别用琥珀色吓人 */
+.banner[data-tone='blue'] {
+  color: var(--c-blue);
+  background: var(--c-blue-soft);
+  border-left: 3px solid var(--c-blue);
+}
+
+/* 和 .banner a 一样 flex:none，否则会被拉伸成一条 */
+.bannerClose {
+  flex: none;
+  padding: 0 2px;
+  font-size: var(--fs-sm);
+  line-height: 1;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+}
+
+.bannerClose:hover {
+  opacity: 1;
+}
+
+.confirmNote {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.scrim {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .shell {
+    flex-direction: column;
+  }
+
+  .topbar {
+    position: sticky;
+    top: 0;
+    z-index: 90;
+    display: flex;
+    align-items: center;
+    gap: var(--sp-3);
+    height: 52px;
+    padding: 0 var(--sp-4);
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .burger {
+    width: 32px;
+    height: 32px;
+    font-size: 16px;
+    color: var(--text);
+    background: none;
+    border: none;
+    border-radius: var(--r-sm);
+    cursor: pointer;
+  }
+
+  .burger:hover {
+    background: var(--surface-2);
+  }
+
+  .brand {
+    font-size: var(--fs-base);
+    font-weight: 600;
+  }
+
+  .main {
+    padding: var(--sp-5) var(--sp-4) var(--sp-10);
+  }
+
+  .scrim {
+    display: block;
+    position: fixed;
+    inset: 0;
+    z-index: 95;
+    background: rgba(20, 20, 22, 0.4);
+  }
+}

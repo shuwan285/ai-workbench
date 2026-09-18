@@ -1,0 +1,279 @@
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: var(--sp-4);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.stat strong {
+  color: var(--text);
+  font-variant-numeric: tabular-nums;
+}
+
+.reviewBtn {
+  margin-left: auto;
+}
+
+.alert {
+  color: var(--c-amber);
+}
+
+.alert strong {
+  color: var(--c-amber);
+}
+
+/* 竖线把每一步串起来，让它读起来像一条路线而不是一堆卡片 */
+.steps {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.step {
+  display: grid;
+  grid-template-columns: 32px minmax(0, 1fr);
+  gap: var(--sp-4);
+  align-items: start;
+}
+
+.marker {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border-radius: var(--r-full);
+  background: var(--surface);
+  border: 1px solid var(--border-strong);
+  color: var(--muted);
+  font-size: var(--fs-sm);
+  z-index: 1;
+}
+
+/* 连接线从上一步的圆点连到下一步，最后一步不画 */
+.step:not(:last-child) .marker::after {
+  content: '';
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  width: 1px;
+  height: calc(var(--sp-4) + 8px);
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+.step[data-status='done'] .marker {
+  background: var(--c-green-soft);
+  border-color: var(--c-green);
+  color: var(--c-green);
+}
+
+.step[data-current='true'] .marker {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: var(--accent-contrast);
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-4) var(--sp-5);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+  min-width: 0;
+}
+
+.step[data-current='true'] .body {
+  border-color: var(--accent);
+  box-shadow: var(--shadow-sm);
+}
+
+.step[data-status='done'] .body {
+  opacity: 0.72;
+}
+
+.head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.title {
+  font-weight: 600;
+  color: var(--text);
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.here {
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  border: 1px solid var(--accent);
+  border-radius: var(--r-full);
+  padding: 0 var(--sp-2);
+  line-height: 1.6;
+}
+
+.meta {
+  display: flex;
+  gap: var(--sp-4);
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+
+.knowledge {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-1);
+  margin: var(--sp-1) 0 0;
+  padding: var(--sp-3) 0 0;
+  border-top: 1px dashed var(--border);
+  list-style: none;
+}
+
+/* 这一步要做什么 */
+.doThis {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+.missing {
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--c-amber);
+}
+
+/* 做到什么算完成 */
+.doneWhen {
+  display: flex;
+  gap: var(--sp-2);
+  margin: 0;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.doneLabel {
+  flex: none;
+  color: var(--faint);
+}
+
+.kItem {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: var(--sp-1) 0;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.kHead {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+/* 为什么这一步需要学它 —— 取自项目关联上的 reasonNeeded */
+.kReason {
+  margin: 0;
+  padding-left: var(--sp-3);
+  font-size: var(--fs-xs);
+  color: var(--faint);
+  line-height: 1.5;
+}
+
+/* 不做这一步就会卡住的知识点 */
+.kItem[data-blocking='true'] .kName {
+  color: var(--text);
+  font-weight: 600;
+}
+
+/* 前面加一道竖线，一眼看出这条是「要先补的」 */
+.kItem[data-blocking='true']::before {
+  content: '';
+  width: 2px;
+  height: 14px;
+  margin-right: calc(-1 * var(--sp-2));
+  background: var(--c-amber);
+  border-radius: var(--r-full);
+}
+
+.kName {
+  color: var(--text);
+}
+
+.kMinutes {
+  margin-left: auto;
+  color: var(--faint);
+  font-size: var(--fs-xs);
+  font-variant-numeric: tabular-nums;
+}
+
+.mustFirst {
+  font-size: var(--fs-xs);
+  color: var(--c-amber);
+  border: 1px solid var(--c-amber);
+  border-radius: var(--r-full);
+  padding: 0 var(--sp-2);
+  line-height: 1.6;
+}
+
+.noKnowledge {
+  margin: var(--sp-1) 0 0;
+  padding-top: var(--sp-3);
+  border-top: 1px dashed var(--border);
+  font-size: var(--fs-sm);
+  color: var(--faint);
+}
+
+@media (max-width: 640px) {
+  .summary {
+    gap: var(--sp-3);
+  }
+
+  .step {
+    grid-template-columns: 24px minmax(0, 1fr);
+    gap: var(--sp-3);
+  }
+
+  .marker {
+    width: 24px;
+    height: 24px;
+    font-size: var(--fs-xs);
+  }
+
+  .step:not(:last-child) .marker::after {
+    top: 24px;
+  }
+
+  .body {
+    padding: var(--sp-4);
+  }
+
+  .kMinutes {
+    margin-left: 0;
+  }
+}

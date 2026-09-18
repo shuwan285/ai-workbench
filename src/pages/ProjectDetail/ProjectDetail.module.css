@@ -1,0 +1,260 @@
+.back {
+  display: inline-block;
+  margin-bottom: var(--sp-4);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.back:hover {
+  color: var(--accent);
+}
+
+.header {
+  padding-bottom: var(--sp-5);
+}
+
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+}
+
+.colorBar {
+  flex: none;
+  width: 4px;
+  height: 26px;
+  border-radius: var(--r-full);
+}
+
+.title {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--fs-xl);
+  font-weight: 650;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.metaRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-top: var(--sp-3);
+}
+
+.category {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+}
+
+.tag {
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+
+.progressRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--sp-4);
+  margin-top: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.progressBar {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  flex: none;
+}
+
+.progressTrack {
+  width: 140px;
+  height: 6px;
+  background: var(--surface-2);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: var(--c-blue);
+  border-radius: var(--r-full);
+  transition: width 0.3s ease;
+}
+
+.progressFill[data-tone='green'] {
+  background: var(--c-green);
+}
+
+.progressText {
+  font-size: var(--fs-sm);
+  font-weight: 600;
+}
+
+.progressSub {
+  font-weight: 400;
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+
+.nextAction {
+  flex: 1;
+  min-width: 180px;
+  font-size: var(--fs-md);
+  line-height: 1.4;
+}
+
+.nextAction span[data-empty='true'] {
+  color: var(--faint);
+  font-size: var(--fs-sm);
+}
+
+.nextLabel {
+  margin-right: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+
+.deadline {
+  flex: none;
+  font-size: var(--fs-sm);
+  font-family: var(--font-mono);
+  color: var(--muted);
+}
+
+.deadline[data-level='overdue'],
+.deadline[data-level='urgent'] {
+  color: var(--c-red);
+  font-weight: 600;
+}
+
+.deadline[data-level='soon'] {
+  color: var(--c-amber);
+}
+
+.blockBanner {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  margin-bottom: var(--sp-4);
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--fs-sm);
+  background: var(--c-amber-soft);
+  border-left: 3px solid var(--c-amber);
+  border-radius: var(--r-md);
+}
+
+.blockText {
+  flex: 1;
+  min-width: 0;
+}
+
+.blockNames {
+  margin-left: var(--sp-1);
+  color: var(--c-amber);
+  font-weight: 500;
+}
+
+.dismiss {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  font-size: 11px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+}
+
+.dismiss:hover {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+.tabs {
+  display: flex;
+  gap: var(--sp-1);
+  border-bottom: 1px solid var(--border);
+  overflow-x: auto;
+}
+
+.tab {
+  position: relative;
+  flex: none;
+  height: 38px;
+  padding: 0 var(--sp-4);
+  font-size: var(--fs-base);
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.tab:hover {
+  color: var(--text);
+}
+
+.tab[data-active='true'] {
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.tab[data-active='true']::after {
+  content: '';
+  position: absolute;
+  left: var(--sp-3);
+  right: var(--sp-3);
+  bottom: -1px;
+  height: 2px;
+  background: var(--accent);
+  border-radius: var(--r-full) var(--r-full) 0 0;
+}
+
+.tabPanel {
+  padding-top: var(--sp-5);
+}
+
+.impact {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: var(--sp-3) var(--sp-4);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+
+.impact strong {
+  color: var(--text);
+}
+
+.impactSafe {
+  margin-top: 2px;
+  padding-top: 6px;
+  color: var(--c-green);
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 780px) {
+  .title {
+    font-size: var(--fs-lg);
+  }
+
+  .nextAction {
+    flex: 1 0 100%;
+  }
+}

@@ -1,0 +1,133 @@
+.head {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  margin-bottom: var(--sp-5);
+}
+
+.head h1 {
+  font-size: var(--fs-xl);
+  font-weight: 650;
+}
+
+.sub {
+  max-width: 560px;
+  margin-top: 3px;
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.item {
+  padding: var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--r-md);
+}
+
+.item[data-unconfigured='true'] {
+  border-style: dashed;
+}
+
+.itemHead {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+}
+
+.icon {
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+
+.name {
+  font-size: var(--fs-md);
+  font-weight: 600;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  margin-left: auto;
+}
+
+.meta {
+  display: flex;
+  gap: var(--sp-3);
+  margin: var(--sp-3) 0 0;
+  padding: var(--sp-2) var(--sp-3);
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+
+.meta dt {
+  flex: none;
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.meta dd {
+  margin: 0;
+  min-width: 0;
+}
+
+.target {
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  word-break: break-all;
+  line-height: 1.7;
+}
+
+.missing {
+  color: var(--c-amber);
+  font-family: var(--font-ui);
+}
+
+.desc {
+  margin-top: var(--sp-2);
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.projects {
+  margin-top: var(--sp-1);
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+
+.deleteNote {
+  font-size: var(--fs-sm);
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+@media (max-width: 640px) {
+  .head {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .itemHead {
+    flex-wrap: wrap;
+  }
+
+  .actions {
+    width: 100%;
+    justify-content: flex-end;
+  }
+}

@@ -1,0 +1,53 @@
+.wrap {
+  width: 100%;
+}
+
+.label {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 5px;
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.track {
+  width: 100%;
+  background: var(--surface-2);
+  border-radius: var(--r-full);
+  overflow: hidden;
+}
+
+.md {
+  height: 6px;
+}
+
+.sm {
+  height: 4px;
+}
+
+.lg {
+  height: 10px;
+}
+
+.fill {
+  height: 100%;
+  border-radius: var(--r-full);
+  background: var(--c-blue);
+  transition: width 0.3s ease;
+}
+
+.fill[data-tone='green'] {
+  background: var(--c-green);
+}
+.fill[data-tone='amber'] {
+  background: var(--c-amber);
+}
+.fill[data-tone='red'] {
+  background: var(--c-red);
+}
+.fill[data-tone='purple'] {
+  background: var(--c-purple);
+}
+.fill[data-tone='gray'] {
+  background: var(--c-gray);
+}

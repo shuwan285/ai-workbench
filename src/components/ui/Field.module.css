@@ -1,0 +1,96 @@
+.field {
+  display: block;
+}
+
+.label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--text);
+}
+
+.req {
+  margin-left: 3px;
+  color: var(--c-red);
+}
+
+.input {
+  display: block;
+  width: 100%;
+  min-height: 36px;
+  padding: 7px 10px;
+  font-size: var(--fs-base);
+  color: var(--text);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  transition: border-color 0.15s ease;
+}
+
+.input::placeholder {
+  color: var(--faint);
+}
+
+.input:hover:not(:disabled) {
+  border-color: var(--border-strong);
+}
+
+.input:focus {
+  border-color: var(--accent);
+  outline: none;
+}
+
+.input:disabled {
+  background: var(--surface-2);
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
+.textarea {
+  min-height: 84px;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.select {
+  padding-right: 28px;
+  cursor: pointer;
+  appearance: none;
+  background-image: linear-gradient(45deg, transparent 50%, var(--muted) 50%),
+    linear-gradient(135deg, var(--muted) 50%, transparent 50%);
+  background-position:
+    calc(100% - 15px) calc(50% + 2px),
+    calc(100% - 10px) calc(50% + 2px);
+  background-size: 5px 5px;
+  background-repeat: no-repeat;
+}
+
+.hint {
+  margin-top: 5px;
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.error {
+  margin-top: 5px;
+  font-size: var(--fs-xs);
+  color: var(--c-red);
+  line-height: 1.5;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-size: var(--fs-base);
+  cursor: pointer;
+}
+
+.checkbox input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--accent);
+  cursor: pointer;
+}

@@ -1,0 +1,31 @@
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--fs-xs);
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.chip[data-level='overdue'],
+.chip[data-level='urgent'] {
+  color: var(--c-red);
+  font-weight: 600;
+}
+
+.chip[data-level='soon'] {
+  color: var(--c-amber);
+  font-weight: 500;
+}
+
+.done {
+  font-size: var(--fs-xs);
+  color: var(--c-green);
+}
+
+.none {
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}

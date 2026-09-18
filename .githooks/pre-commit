@@ -1,0 +1,9 @@
+#!/bin/sh
+# 提交前扫一遍暂存区，别把 API key 一起提交进去。
+#
+# 这个钩子不在 .git/hooks 里（那里不进版本控制），要用 core.hooksPath 指过来：
+#   npm run hooks:install
+#
+# 绕过它用 git commit --no-verify —— 但别那么干，CI 上还有同样的一道。
+
+node scripts/check-secrets.mjs || exit 1

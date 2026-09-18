@@ -1,0 +1,21 @@
+node_modules/
+dist/
+.DS_Store
+*.local
+.vite/
+tmp/
+
+# *.local 只匹配以 .local 结尾的文件名，挡不住这个
+.claude/settings.local.json
+
+# 应用不读 .env，但很容易有人把 key 放这里然后 git add -A
+.env
+.env.*
+
+# 锚定根目录。配置默认在 ~/.ai-workbench/（仓库外），但只要有人
+# AIWB_CONFIG_DIR=. 起服务，带真实 key 的 config.json 就会落在仓库根目录。
+/config.json
+/data.json
+/data.backup.json
+/data.corrupt.json
+docs/进度日志.md

@@ -1,0 +1,131 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-4);
+}
+
+.spacer {
+  flex: 1;
+}
+
+.chosen {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-2);
+  padding: var(--sp-2) var(--sp-3);
+  font-size: var(--fs-sm);
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+
+.chosen span:nth-child(2) {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chosen button {
+  padding: 0;
+  font-size: var(--fs-xs);
+  color: var(--accent);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.chosenTag {
+  flex: none;
+  padding: 1px 7px;
+  font-size: 11px;
+  border-radius: var(--r-full);
+}
+
+.chosenTag[data-kind='reuse'] {
+  color: var(--c-blue);
+  background: var(--c-blue-soft);
+}
+
+.chosenTag[data-kind='new'] {
+  color: var(--c-green);
+  background: var(--c-green-soft);
+}
+
+.matches {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: var(--sp-3);
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+
+.matchesHead {
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.matches ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.matches li {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: var(--sp-2);
+  background: var(--surface);
+  border-radius: var(--r-sm);
+}
+
+.matchName {
+  flex: 1;
+  min-width: 0;
+  font-size: var(--fs-sm);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.matchMeta {
+  flex: none;
+  font-size: var(--fs-xs);
+  color: var(--faint);
+}
+
+.resources {
+  padding: var(--sp-3);
+  background: var(--surface-2);
+  border-radius: var(--r-sm);
+}
+
+.resourcesHead {
+  margin-bottom: var(--sp-2);
+  font-size: var(--fs-xs);
+  color: var(--muted);
+}
+
+.resources ul {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.resources li {
+  font-size: var(--fs-sm);
+}
+
+@media (max-width: 640px) {
+  .row {
+    grid-template-columns: 1fr;
+  }
+}

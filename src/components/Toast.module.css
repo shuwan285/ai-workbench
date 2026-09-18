@@ -1,0 +1,132 @@
+/* 弹窗打开时挪到顶部，免得盖住弹窗底部的按钮 */
+:global(body[data-modal-open='true']) .viewport {
+  top: var(--sp-4);
+  bottom: auto;
+  flex-direction: column-reverse;
+}
+
+.viewport {
+  position: fixed;
+  right: var(--sp-4);
+  bottom: var(--sp-4);
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  max-width: min(420px, calc(100vw - 32px));
+  pointer-events: none;
+}
+
+.toast {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--sp-2);
+  padding: var(--sp-3) var(--sp-3) var(--sp-3) var(--sp-4);
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--c-gray);
+  border-radius: var(--r-md);
+  box-shadow: var(--shadow-2);
+  pointer-events: auto;
+  animation: slide-in 0.18s ease-out;
+}
+
+.toast[data-tone='info'] {
+  border-left-color: var(--c-blue);
+}
+.toast[data-tone='success'] {
+  border-left-color: var(--c-green);
+}
+.toast[data-tone='warn'] {
+  border-left-color: var(--c-amber);
+}
+.toast[data-tone='error'] {
+  border-left-color: var(--c-red);
+}
+
+.icon {
+  flex: none;
+  width: 18px;
+  height: 18px;
+  display: grid;
+  place-items: center;
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--c-gray);
+  border-radius: var(--r-full);
+}
+
+.toast[data-tone='info'] .icon {
+  color: var(--c-blue);
+}
+.toast[data-tone='success'] .icon {
+  color: var(--c-green);
+}
+.toast[data-tone='warn'] .icon {
+  color: var(--c-amber);
+}
+.toast[data-tone='error'] .icon {
+  color: var(--c-red);
+}
+
+.body {
+  flex: 1;
+  min-width: 0;
+}
+
+.message {
+  font-size: var(--fs-sm);
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.action {
+  margin-top: var(--sp-2);
+  padding: 3px 10px;
+  font-size: var(--fs-xs);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--r-sm);
+  cursor: pointer;
+}
+
+.action:hover {
+  border-color: var(--border-strong);
+}
+
+.close {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+  color: var(--faint);
+  background: none;
+  border: none;
+  border-radius: var(--r-sm);
+  cursor: pointer;
+}
+
+.close:hover {
+  color: var(--text);
+  background: var(--surface-2);
+}
+
+@keyframes slide-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 640px) {
+  .viewport {
+    left: var(--sp-3);
+    right: var(--sp-3);
+    bottom: var(--sp-3);
+    max-width: none;
+  }
+}

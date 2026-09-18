@@ -1,0 +1,55 @@
+{
+  "name": "ai-workbench",
+  "private": true,
+  "version": "1.0.0",
+  "description": "AI 创作项目工作台 - 本地个人项目管理与知识补足工具",
+  "license": "MIT",
+  "author": "shuwan",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shuwan285/ai-workbench.git"
+  },
+  "homepage": "https://github.com/shuwan285/ai-workbench#readme",
+  "bugs": {
+    "url": "https://github.com/shuwan285/ai-workbench/issues"
+  },
+  "keywords": [
+    "ai",
+    "project-management",
+    "learning",
+    "knowledge-gap",
+    "local-first",
+    "claude"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently -n server,web -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "node server/index.js",
+    "dev:web": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "hooks:install": "git config core.hooksPath .githooks",
+    "check:secrets": "node scripts/check-secrets.mjs",
+    "test": "node scripts/selftest.mjs",
+    "test:ui": "vite build --ssr scripts/ssr-entry.jsx --outDir tmp/ssr --target esnext --logLevel error && node tmp/ssr/ssr-entry.js",
+    "test:conflict": "node scripts/conflict-test.mjs",
+    "test:launch": "node scripts/launch-test.mjs",
+    "test:all": "npm run test && npm run test:ui && npm run test:conflict && npm run test:launch"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.125.0",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.26.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.3.1",
+    "concurrently": "^8.2.2",
+    "vite": "^5.4.0"
+  }
+}
